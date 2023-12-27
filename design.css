@@ -38,3 +38,14 @@ h2 {
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
+
+.movieCard:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.movieCard img {
+    width: 100%; /* Make images fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Add a slight border radius to the images */
+}
+

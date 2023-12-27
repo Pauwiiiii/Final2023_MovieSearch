@@ -35,3 +35,19 @@ async function getUpcomingMovies() {
         console.error('Error fetching upcoming movies:', error);
     }
 }
+
+// Function to display movies on the homepage
+function displayMovies(movies) {
+    const movieList = document.getElementById('movieList');
+    movieList.innerHTML = '';
+
+    movies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'movieCard';
+        movieCard.innerHTML = `<img src="http://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}">
+                               <h3>${movie.title}</h3>
+                               <p>${movie.release_date}</p>`;
+        movieCard.addEventListener('dblclick', () => showMovieDetails(movie.id));
+        movieList.appendChild(movieCard);
+    });
+}
