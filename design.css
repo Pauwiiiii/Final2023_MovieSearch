@@ -60,6 +60,7 @@ h2 {
     background: rgba(0, 0, 0, 0.7); /* Darker background for better visibility */
     justify-content: center;
     align-items: center;
+    align-items: flex-start;
 }
 
 .popupContent {
@@ -69,6 +70,8 @@ h2 {
     text-align: left;
     opacity: 0; /* Initially invisible for fade-in effect */
     animation: fadeIn 0.5s forwards;
+    max-height: 70vh; /* Set a maximum height for the popup content */
+    overflow-y: auto; 
 }
 
 @keyframes fadeIn {
@@ -115,8 +118,26 @@ h2 {
 #similarMovies {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #similarMovies li {
-    margin-bottom: 5px;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #ecf5e1; /* Light green card background color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#similarMovies li:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+#similarMovies li img {
+    width: 100%; /* Make images fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Add a slight border radius to the images */
 }

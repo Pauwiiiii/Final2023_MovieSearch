@@ -1,6 +1,8 @@
 const apiKey = '1bfdbff05c2698dc917dd28c08d41096';
 const baseUrl = 'https://api.themoviedb.org/3';
 
+// Initial setup
+getUpcomingMovies();
 
 // Function to handle movie search
 async function searchMovies() {
@@ -70,11 +72,15 @@ async function showMovieDetails(movieId) {
         movieInfo.innerHTML = `<h2>${movieDetails.title}</h2>
                                <p>${movieDetails.overview}</p>`;
         
-        // Clear and populate the list of similar movies
+        // Clear and populate the list of similar movies with images
         similarMoviesList.innerHTML = '';
         similarMovies.forEach(similarMovie => {
             const li = document.createElement('li');
-            li.textContent = similarMovie.title;
+            li.innerHTML = `
+                <img src="http://image.tmdb.org/t/p/w200/${similarMovie.poster_path}" alt="${similarMovie.title}">
+                <span>${similarMovie.title}</span>
+            `;
+            li.addEventListener('dblclick', () => showMovieDetails(similarMovie.id));
             similarMoviesList.appendChild(li);
         });
 
@@ -96,5 +102,3 @@ function closeMovieDetailsPopup() {
     popupContent.style.display = 'none';
 }
 
-// Initial setup
-getUpcomingMovies();
