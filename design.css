@@ -79,3 +79,44 @@ h2 {
         opacity: 1;
     }
 }
+
+#closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background: #4caf50; /* Darker green close button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#closePopup:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#movieDetails {
+    display: flex;
+    align-items: center;
+}
+
+#popupMovieImage {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+#movieInfo {
+    flex-grow: 1;
+}
+
+#similarMovies {
+    list-style: none;
+    padding: 0;
+}
+
+#similarMovies li {
+    margin-bottom: 5px;
+}

@@ -88,3 +88,13 @@ async function showMovieDetails(movieId) {
         console.error('Error fetching movie details:', error);
     }
 }
+
+// Function to close movie details popup
+function closeMovieDetailsPopup() {
+    const popupContent = document.getElementById('movieDetailsPopup');
+    popupContent.innerHTML = '';
+    popupContent.style.display = 'none';
+}
+
+// Initial setup
+getUpcomingMovies();
