@@ -23,3 +23,18 @@ main {
 h2 {
     color: #333;
 }
+
+#movieList {
+    display: flex;
+    flex-wrap: wrap;
+} 
+
+.movieCard {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #ecf5e1; /* Light green card background color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
