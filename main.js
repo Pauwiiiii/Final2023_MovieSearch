@@ -51,3 +51,40 @@ function displayMovies(movies) {
         movieList.appendChild(movieCard);
     });
 }
+
+// Function to show movie details popup
+async function showMovieDetails(movieId) {
+    try {
+        const response = await axios.get(`${baseUrl}/movie/${movieId}?api_key=${apiKey}&language=en-US`);
+        const movieDetails = response.data;
+        const similarMoviesResponse = await axios.get(`${baseUrl}/movie/${movieId}/similar?api_key=${apiKey}&language=en-US&page=1`);
+        const similarMovies = similarMoviesResponse.data.results;
+
+        const popupContent = document.getElementById('movieDetailsPopup');
+        const popupMovieImage = document.getElementById('popupMovieImage');
+        const movieInfo = document.getElementById('movieInfo');
+        const similarMoviesList = document.getElementById('similarMovies');
+
+        // Update the popup content
+        popupMovieImage.src = `http://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`;
+        movieInfo.innerHTML = `<h2>${movieDetails.title}</h2>
+                               <p>${movieDetails.overview}</p>`;
+        
+        // Clear and populate the list of similar movies
+        similarMoviesList.innerHTML = '';
+        similarMovies.forEach(similarMovie => {
+            const li = document.createElement('li');
+            li.textContent = similarMovie.title;
+            similarMoviesList.appendChild(li);
+        });
+
+        // Display the popup
+        popupContent.style.display = 'flex';
+
+        // Event listener for the close button
+        const closePopupButton = document.getElementById('closePopup');
+        closePopupButton.addEventListener('click', () => closeMovieDetailsPopup());
+    } catch (error) {
+        console.error('Error fetching movie details:', error);
+    }
+}

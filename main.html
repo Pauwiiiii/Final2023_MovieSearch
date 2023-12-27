@@ -14,7 +14,7 @@
         <input type="text" id="searchInput" placeholder="Search for a movie...">
         <button id="searchButton">Search</button>
     </header>
-
+    
     <main id="mainContent">
 
         <!-- Upcoming Movies Section -->
@@ -23,12 +23,22 @@
             <div id="movieList"></div>
         </section>
 
+        <!-- Movie Details Popup -->
+        <div id="movieDetailsPopup">
+            <div class="popupContent">
+                <button id="closePopup">&times;</button>
+                <div id="movieDetailsContent">
+                    <img id="popupMovieImage" src="" alt="">
+                    <div id="movieInfo"></div>
+                </div>
+                <h3>Similar Movies</h3>
+                <ul id="similarMovies"></ul>
+            </div>
+        </div>
 
 
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
-    
 </body>
 </html>
